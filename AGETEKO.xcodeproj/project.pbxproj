@@ -6,6 +6,10 @@
 	objectVersion = 77;
 	objects = {
 
+/* Begin PBXBuildFile section */
+		57A2E8482D8B2ED00086A056 /* OpenAI in Frameworks */ = {isa = PBXBuildFile; productRef = 57A2E8472D8B2ED00086A056 /* OpenAI */; };
+/* End PBXBuildFile section */
+
 /* Begin PBXContainerItemProxy section */
 		57D421EB2D89E4A0008CD006 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
@@ -29,9 +33,22 @@
 		57D421F42D89E4A0008CD006 /* AGETEKOUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = AGETEKOUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
+/* Begin PBXFileSystemSynchronizedBuildFileExceptionSet section */
+		57A2E8582D8B3BF90086A056 /* Exceptions for "AGETEKO" folder in "AGETEKO" target */ = {
+			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
+			membershipExceptions = (
+				Info.plist,
+			);
+			target = 57D421D82D89E49F008CD006 /* AGETEKO */;
+		};
+/* End PBXFileSystemSynchronizedBuildFileExceptionSet section */
+
 /* Begin PBXFileSystemSynchronizedRootGroup section */
 		57D421DB2D89E49F008CD006 /* AGETEKO */ = {
 			isa = PBXFileSystemSynchronizedRootGroup;
+			exceptions = (
+				57A2E8582D8B3BF90086A056 /* Exceptions for "AGETEKO" folder in "AGETEKO" target */,
+			);
 			path = AGETEKO;
 			sourceTree = "<group>";
 		};
@@ -52,6 +69,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				57A2E8482D8B2ED00086A056 /* OpenAI in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -112,6 +130,7 @@
 			);
 			name = AGETEKO;
 			packageProductDependencies = (
+				57A2E8472D8B2ED00086A056 /* OpenAI */,
 			);
 			productName = AGETEKO;
 			productReference = 57D421D92D89E49F008CD006 /* AGETEKO.app */;
@@ -195,6 +214,9 @@
 			);
 			mainGroup = 57D421D02D89E49F008CD006;
 			minimizedProjectReferenceProxies = 1;
+			packageReferences = (
+				57A2E8462D8B2ED00086A056 /* XCRemoteSwiftPackageReference "OpenAI" */,
+			);
 			preferredProjectObjectVersion = 77;
 			productRefGroup = 57D421DA2D89E49F008CD006 /* Products */;
 			projectDirPath = "";
@@ -396,6 +418,9 @@
 				ENABLE_HARDENED_RUNTIME = YES;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = AGETEKO/Info.plist;
+				INFOPLIST_KEY_NSMicrophoneUsageDescription = "$(PRODUCT_NAME)此應用程式使用您的麥克風來處理語音輸入";
+				INFOPLIST_KEY_NSSpeechRecognitionUsageDescription = "$(PRODUCT_NAME)需要語音識別功能來轉換您的語音為文字";
 				"INFOPLIST_KEY_UIApplicationSceneManifest_Generation[sdk=iphoneos*]" = YES;
 				"INFOPLIST_KEY_UIApplicationSceneManifest_Generation[sdk=iphonesimulator*]" = YES;
 				"INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents[sdk=iphoneos*]" = YES;
@@ -435,6 +460,9 @@
 				ENABLE_HARDENED_RUNTIME = YES;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = AGETEKO/Info.plist;
+				INFOPLIST_KEY_NSMicrophoneUsageDescription = "$(PRODUCT_NAME)此應用程式使用您的麥克風來處理語音輸入";
+				INFOPLIST_KEY_NSSpeechRecognitionUsageDescription = "$(PRODUCT_NAME)需要語音識別功能來轉換您的語音為文字";
 				"INFOPLIST_KEY_UIApplicationSceneManifest_Generation[sdk=iphoneos*]" = YES;
 				"INFOPLIST_KEY_UIApplicationSceneManifest_Generation[sdk=iphonesimulator*]" = YES;
 				"INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents[sdk=iphoneos*]" = YES;
@@ -591,6 +619,25 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		57A2E8462D8B2ED00086A056 /* XCRemoteSwiftPackageReference "OpenAI" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/MacPaw/OpenAI.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 0.3.6;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		57A2E8472D8B2ED00086A056 /* OpenAI */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 57A2E8462D8B2ED00086A056 /* XCRemoteSwiftPackageReference "OpenAI" */;
+			productName = OpenAI;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = 57D421D12D89E49F008CD006 /* Project object */;
 }
