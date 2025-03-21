@@ -8,8 +8,35 @@ class SpeechRecognitionManager: ObservableObject {
     private var recognitionTask: SFSpeechRecognitionTask?
 
     @Published var recognizedText: String = ""
+    @Published var isAuthorized: Bool = false
+    
+    init() {
+            requestSpeechRecognitionPermission()
+        }
+
+        func requestSpeechRecognitionPermission() {
+            SFSpeechRecognizer.requestAuthorization { authStatus in
+                DispatchQueue.main.async {
+                    switch authStatus {
+                    case .authorized:
+                        self.isAuthorized = true
+                    case .denied, .restricted, .notDetermined:
+                        self.isAuthorized = false
+                        print("音声認識、許可されてな～い💦")
+                    @unknown default:
+                        self.isAuthorized = false
+                    }
+                }
+            }
+        }
+    
 
     func startRecording() throws {
+        guard isAuthorized else {
+                    print("マイク許可されてないっぽ〜！設定確認して🎤")
+                    return
+                }
+        
         // 配置 AVAudioSession
         let audioSession = AVAudioSession.sharedInstance()
         try audioSession.setCategory(.record, mode: .measurement, options: .duckOthers)
