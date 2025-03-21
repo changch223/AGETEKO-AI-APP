@@ -1,0 +1,6 @@
+framework module Pods_AGETEKOTests {
+  umbrella header "Pods-AGETEKOTests-umbrella.h"
+
+  export *
+  module * { export * }
+}

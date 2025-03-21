@@ -7,7 +7,11 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		255AE2E025E4F716FAAB9043 /* Pods_AGETEKO.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AC47293CC2BB1EB712FCB920 /* Pods_AGETEKO.framework */; };
 		57A2E8482D8B2ED00086A056 /* OpenAI in Frameworks */ = {isa = PBXBuildFile; productRef = 57A2E8472D8B2ED00086A056 /* OpenAI */; };
+		57A2EE972D8CF8830086A056 /* GoogleMobileAds in Frameworks */ = {isa = PBXBuildFile; productRef = 57A2EE962D8CF8830086A056 /* GoogleMobileAds */; };
+		826DA6E4E72A270B4973B8A4 /* Pods_AGETEKOTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FE87C0AE8C8ACD98DBA3FE04 /* Pods_AGETEKOTests.framework */; };
+		CEC3B7F73935B5973B4E0FCA /* Pods_AGETEKO_AGETEKOUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F32265005AB2AE06BB759BC2 /* Pods_AGETEKO_AGETEKOUITests.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -28,9 +32,18 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		21195A4516DFC2AFD044EFAD /* Pods-AGETEKO.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AGETEKO.debug.xcconfig"; path = "Target Support Files/Pods-AGETEKO/Pods-AGETEKO.debug.xcconfig"; sourceTree = "<group>"; };
 		57D421D92D89E49F008CD006 /* AGETEKO.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = AGETEKO.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		57D421EA2D89E4A0008CD006 /* AGETEKOTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = AGETEKOTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		57D421F42D89E4A0008CD006 /* AGETEKOUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = AGETEKOUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		5ECEAB7CF04737238E53F28E /* Pods-AGETEKO-AGETEKOUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AGETEKO-AGETEKOUITests.debug.xcconfig"; path = "Target Support Files/Pods-AGETEKO-AGETEKOUITests/Pods-AGETEKO-AGETEKOUITests.debug.xcconfig"; sourceTree = "<group>"; };
+		71F1A0EE0ECE9AD521F1E11D /* Pods-AGETEKOTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AGETEKOTests.release.xcconfig"; path = "Target Support Files/Pods-AGETEKOTests/Pods-AGETEKOTests.release.xcconfig"; sourceTree = "<group>"; };
+		880A49349ADB9FC6C9BA1B40 /* Pods-AGETEKO.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AGETEKO.release.xcconfig"; path = "Target Support Files/Pods-AGETEKO/Pods-AGETEKO.release.xcconfig"; sourceTree = "<group>"; };
+		9F0E72C1105EAC4C73869D44 /* Pods-AGETEKOTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AGETEKOTests.debug.xcconfig"; path = "Target Support Files/Pods-AGETEKOTests/Pods-AGETEKOTests.debug.xcconfig"; sourceTree = "<group>"; };
+		AC47293CC2BB1EB712FCB920 /* Pods_AGETEKO.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_AGETEKO.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		C866EC94DF163966424FCA54 /* Pods-AGETEKO-AGETEKOUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AGETEKO-AGETEKOUITests.release.xcconfig"; path = "Target Support Files/Pods-AGETEKO-AGETEKOUITests/Pods-AGETEKO-AGETEKOUITests.release.xcconfig"; sourceTree = "<group>"; };
+		F32265005AB2AE06BB759BC2 /* Pods_AGETEKO_AGETEKOUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_AGETEKO_AGETEKOUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		FE87C0AE8C8ACD98DBA3FE04 /* Pods_AGETEKOTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_AGETEKOTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFileSystemSynchronizedBuildFileExceptionSet section */
@@ -69,7 +82,9 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				57A2EE972D8CF8830086A056 /* GoogleMobileAds in Frameworks */,
 				57A2E8482D8B2ED00086A056 /* OpenAI in Frameworks */,
+				255AE2E025E4F716FAAB9043 /* Pods_AGETEKO.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -77,6 +92,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				826DA6E4E72A270B4973B8A4 /* Pods_AGETEKOTests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -84,6 +100,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				CEC3B7F73935B5973B4E0FCA /* Pods_AGETEKO_AGETEKOUITests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -97,6 +114,8 @@
 				57D421ED2D89E4A0008CD006 /* AGETEKOTests */,
 				57D421F72D89E4A0008CD006 /* AGETEKOUITests */,
 				57D421DA2D89E49F008CD006 /* Products */,
+				6ED91F1ECB3C021049A73E7B /* Pods */,
+				9D6097ED931DB3282AEBC789 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -110,6 +129,29 @@
 			name = Products;
 			sourceTree = "<group>";
 		};
+		6ED91F1ECB3C021049A73E7B /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				21195A4516DFC2AFD044EFAD /* Pods-AGETEKO.debug.xcconfig */,
+				880A49349ADB9FC6C9BA1B40 /* Pods-AGETEKO.release.xcconfig */,
+				5ECEAB7CF04737238E53F28E /* Pods-AGETEKO-AGETEKOUITests.debug.xcconfig */,
+				C866EC94DF163966424FCA54 /* Pods-AGETEKO-AGETEKOUITests.release.xcconfig */,
+				9F0E72C1105EAC4C73869D44 /* Pods-AGETEKOTests.debug.xcconfig */,
+				71F1A0EE0ECE9AD521F1E11D /* Pods-AGETEKOTests.release.xcconfig */,
+			);
+			path = Pods;
+			sourceTree = "<group>";
+		};
+		9D6097ED931DB3282AEBC789 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				AC47293CC2BB1EB712FCB920 /* Pods_AGETEKO.framework */,
+				F32265005AB2AE06BB759BC2 /* Pods_AGETEKO_AGETEKOUITests.framework */,
+				FE87C0AE8C8ACD98DBA3FE04 /* Pods_AGETEKOTests.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -117,9 +159,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 57D421FE2D89E4A0008CD006 /* Build configuration list for PBXNativeTarget "AGETEKO" */;
 			buildPhases = (
+				BAC8ADD0810A5F16267C9F2B /* [CP] Check Pods Manifest.lock */,
 				57D421D52D89E49F008CD006 /* Sources */,
 				57D421D62D89E49F008CD006 /* Frameworks */,
 				57D421D72D89E49F008CD006 /* Resources */,
+				C1C5CCDAF3F845AC67DBC21E /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -131,6 +175,7 @@
 			name = AGETEKO;
 			packageProductDependencies = (
 				57A2E8472D8B2ED00086A056 /* OpenAI */,
+				57A2EE962D8CF8830086A056 /* GoogleMobileAds */,
 			);
 			productName = AGETEKO;
 			productReference = 57D421D92D89E49F008CD006 /* AGETEKO.app */;
@@ -140,6 +185,7 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 57D422012D89E4A0008CD006 /* Build configuration list for PBXNativeTarget "AGETEKOTests" */;
 			buildPhases = (
+				E37B93A243B2DEA44B78CCFF /* [CP] Check Pods Manifest.lock */,
 				57D421E62D89E4A0008CD006 /* Sources */,
 				57D421E72D89E4A0008CD006 /* Frameworks */,
 				57D421E82D89E4A0008CD006 /* Resources */,
@@ -153,8 +199,6 @@
 				57D421ED2D89E4A0008CD006 /* AGETEKOTests */,
 			);
 			name = AGETEKOTests;
-			packageProductDependencies = (
-			);
 			productName = AGETEKOTests;
 			productReference = 57D421EA2D89E4A0008CD006 /* AGETEKOTests.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
@@ -163,9 +207,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 57D422042D89E4A0008CD006 /* Build configuration list for PBXNativeTarget "AGETEKOUITests" */;
 			buildPhases = (
+				B3EEC1A2269B26227BF51F36 /* [CP] Check Pods Manifest.lock */,
 				57D421F02D89E4A0008CD006 /* Sources */,
 				57D421F12D89E4A0008CD006 /* Frameworks */,
 				57D421F22D89E4A0008CD006 /* Resources */,
+				192A53AB63B5CE769EDD3A8A /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -176,8 +222,6 @@
 				57D421F72D89E4A0008CD006 /* AGETEKOUITests */,
 			);
 			name = AGETEKOUITests;
-			packageProductDependencies = (
-			);
 			productName = AGETEKOUITests;
 			productReference = 57D421F42D89E4A0008CD006 /* AGETEKOUITests.xctest */;
 			productType = "com.apple.product-type.bundle.ui-testing";
@@ -216,6 +260,7 @@
 			minimizedProjectReferenceProxies = 1;
 			packageReferences = (
 				57A2E8462D8B2ED00086A056 /* XCRemoteSwiftPackageReference "OpenAI" */,
+				57A2EE952D8CF8830086A056 /* XCRemoteSwiftPackageReference "swift-package-manager-google-mobile-ads" */,
 			);
 			preferredProjectObjectVersion = 77;
 			productRefGroup = 57D421DA2D89E49F008CD006 /* Products */;
@@ -252,6 +297,109 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		192A53AB63B5CE769EDD3A8A /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-AGETEKO-AGETEKOUITests/Pods-AGETEKO-AGETEKOUITests-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-AGETEKO-AGETEKOUITests/Pods-AGETEKO-AGETEKOUITests-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-AGETEKO-AGETEKOUITests/Pods-AGETEKO-AGETEKOUITests-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		B3EEC1A2269B26227BF51F36 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-AGETEKO-AGETEKOUITests-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		BAC8ADD0810A5F16267C9F2B /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-AGETEKO-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		C1C5CCDAF3F845AC67DBC21E /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-AGETEKO/Pods-AGETEKO-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-AGETEKO/Pods-AGETEKO-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-AGETEKO/Pods-AGETEKO-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		E37B93A243B2DEA44B78CCFF /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-AGETEKOTests-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		57D421D52D89E49F008CD006 /* Sources */ = {
@@ -325,10 +473,11 @@
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				COPY_PHASE_STRIP = NO;
+				DEAD_CODE_STRIPPING = YES;
 				DEBUG_INFORMATION_FORMAT = dwarf;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				ENABLE_TESTABILITY = YES;
-				ENABLE_USER_SCRIPT_SANDBOXING = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = NO;
 				GCC_C_LANGUAGE_STANDARD = gnu17;
 				GCC_DYNAMIC_NO_PIC = NO;
 				GCC_NO_COMMON_BLOCKS = YES;
@@ -347,8 +496,10 @@
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
 				ONLY_ACTIVE_ARCH = YES;
+				OTHER_CFLAGS = "";
 				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "DEBUG $(inherited)";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				USE_HEADERMAP = NO;
 			};
 			name = Debug;
 		};
@@ -386,10 +537,11 @@
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				COPY_PHASE_STRIP = NO;
+				DEAD_CODE_STRIPPING = YES;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				ENABLE_NS_ASSERTIONS = NO;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
-				ENABLE_USER_SCRIPT_SANDBOXING = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = NO;
 				GCC_C_LANGUAGE_STANDARD = gnu17;
 				GCC_NO_COMMON_BLOCKS = YES;
 				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
@@ -401,18 +553,22 @@
 				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
+				OTHER_CFLAGS = "";
 				SWIFT_COMPILATION_MODE = wholemodule;
+				USE_HEADERMAP = NO;
 			};
 			name = Release;
 		};
 		57D421FF2D89E4A0008CD006 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 21195A4516DFC2AFD044EFAD /* Pods-AGETEKO.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_ENTITLEMENTS = AGETEKO/AGETEKO.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
+				DEAD_CODE_STRIPPING = YES;
 				DEVELOPMENT_ASSET_PATHS = "\"AGETEKO/Preview Content\"";
 				DEVELOPMENT_TEAM = MY8WU4892D;
 				ENABLE_HARDENED_RUNTIME = YES;
@@ -432,8 +588,7 @@
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				IPHONEOS_DEPLOYMENT_TARGET = 18.2;
-				LD_RUNPATH_SEARCH_PATHS = "@executable_path/Frameworks";
-				"LD_RUNPATH_SEARCH_PATHS[sdk=macosx*]" = "@executable_path/../Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited)";
 				MACOSX_DEPLOYMENT_TARGET = 15.2;
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = CHIA.AGETEKO;
@@ -449,12 +604,14 @@
 		};
 		57D422002D89E4A0008CD006 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 880A49349ADB9FC6C9BA1B40 /* Pods-AGETEKO.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_ENTITLEMENTS = AGETEKO/AGETEKO.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
+				DEAD_CODE_STRIPPING = YES;
 				DEVELOPMENT_ASSET_PATHS = "\"AGETEKO/Preview Content\"";
 				DEVELOPMENT_TEAM = MY8WU4892D;
 				ENABLE_HARDENED_RUNTIME = YES;
@@ -474,8 +631,7 @@
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				IPHONEOS_DEPLOYMENT_TARGET = 18.2;
-				LD_RUNPATH_SEARCH_PATHS = "@executable_path/Frameworks";
-				"LD_RUNPATH_SEARCH_PATHS[sdk=macosx*]" = "@executable_path/../Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited)";
 				MACOSX_DEPLOYMENT_TARGET = 15.2;
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = CHIA.AGETEKO;
@@ -491,10 +647,12 @@
 		};
 		57D422022D89E4A0008CD006 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 9F0E72C1105EAC4C73869D44 /* Pods-AGETEKOTests.debug.xcconfig */;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
+				DEAD_CODE_STRIPPING = YES;
 				DEVELOPMENT_TEAM = MY8WU4892D;
 				GENERATE_INFOPLIST_FILE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 18.2;
@@ -514,10 +672,12 @@
 		};
 		57D422032D89E4A0008CD006 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 71F1A0EE0ECE9AD521F1E11D /* Pods-AGETEKOTests.release.xcconfig */;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
+				DEAD_CODE_STRIPPING = YES;
 				DEVELOPMENT_TEAM = MY8WU4892D;
 				GENERATE_INFOPLIST_FILE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 18.2;
@@ -537,9 +697,11 @@
 		};
 		57D422052D89E4A0008CD006 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 5ECEAB7CF04737238E53F28E /* Pods-AGETEKO-AGETEKOUITests.debug.xcconfig */;
 			buildSettings = {
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
+				DEAD_CODE_STRIPPING = YES;
 				DEVELOPMENT_TEAM = MY8WU4892D;
 				GENERATE_INFOPLIST_FILE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 18.2;
@@ -559,9 +721,11 @@
 		};
 		57D422062D89E4A0008CD006 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = C866EC94DF163966424FCA54 /* Pods-AGETEKO-AGETEKOUITests.release.xcconfig */;
 			buildSettings = {
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
+				DEAD_CODE_STRIPPING = YES;
 				DEVELOPMENT_TEAM = MY8WU4892D;
 				GENERATE_INFOPLIST_FILE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 18.2;
@@ -629,6 +793,14 @@
 				minimumVersion = 0.3.6;
 			};
 		};
+		57A2EE952D8CF8830086A056 /* XCRemoteSwiftPackageReference "swift-package-manager-google-mobile-ads" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/googleads/swift-package-manager-google-mobile-ads.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 12.2.0;
+			};
+		};
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
@@ -636,6 +808,11 @@
 			isa = XCSwiftPackageProductDependency;
 			package = 57A2E8462D8B2ED00086A056 /* XCRemoteSwiftPackageReference "OpenAI" */;
 			productName = OpenAI;
+		};
+		57A2EE962D8CF8830086A056 /* GoogleMobileAds */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 57A2EE952D8CF8830086A056 /* XCRemoteSwiftPackageReference "swift-package-manager-google-mobile-ads" */;
+			productName = GoogleMobileAds;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};

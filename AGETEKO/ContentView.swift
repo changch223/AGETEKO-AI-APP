@@ -6,9 +6,8 @@
 //
 
 import SwiftUI
+import GoogleMobileAds
 
-
-import SwiftUI
 
 struct ContentView: View {
     @StateObject var speechRecognizer = SpeechRecognitionManager()
@@ -39,6 +38,10 @@ struct ContentView: View {
                 Button("停止") {
                     speechRecognizer.cancelRecording()
                 }
+                Spacer() // 讓廣告顯示在底部
+
+                BannerAdView(adUnitID:"ca-app-pub-9275380963550837/4750274541") // 測試 AdMob ID
+                    .frame(height: 50) // 設定 banner 高度
             }
             .padding()
         }
