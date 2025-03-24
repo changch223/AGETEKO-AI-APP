@@ -55,7 +55,7 @@ struct ContentView: View {
                     Spacer() // 推開下方空間
                     
                     VStack(spacing: 20) {
-                        NavigationLink(destination: ChatView()) {
+                        NavigationLink(destination: ChatView2()) {
                             Text("アゲアゲで話そ↑↑チャット開幕〜💬")
                                 .font(.title3)
                                 .bold()

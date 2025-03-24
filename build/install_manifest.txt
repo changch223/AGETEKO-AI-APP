@@ -1,0 +1,5 @@
+/Users/changchiawei/Desktop/AGETEKO/build/lib/libmlc_llm.a
+/Users/changchiawei/Desktop/AGETEKO/build/lib/libtokenizers_cpp.a
+/Users/changchiawei/Desktop/AGETEKO/build/lib/libsentencepiece.a
+/Users/changchiawei/Desktop/AGETEKO/build/lib/libtvm_runtime.a
+/Users/changchiawei/Desktop/AGETEKO/build/lib/libtokenizers_c.a
