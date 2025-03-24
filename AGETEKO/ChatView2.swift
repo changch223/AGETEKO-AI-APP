@@ -52,8 +52,8 @@ struct ChatView2: View {
         // 若模型權重是內嵌在 app 中，可透過 Bundle 取得路徑
         
         
-        let modelPath = Bundle.main.path(forResource: "Llama-3.2-3B-Instruct-q4f16_1-MLC", ofType: nil)!
-        let modelLib = "llama_q4f16_1_d44304359a2802d16aa168086928bcad"
+        let modelPath = Bundle.main.path(forResource: "gemma-3-1b-it-q4f16_1", ofType: nil)!
+        let modelLib = "gemma3_text_q4f16_1_c84175f9cc586f4a4ec3b3280b5ffc94"
         
         await engine.reload(modelPath: modelPath, modelLib: modelLib)
         // 可以在初始化後加入提示訊息
