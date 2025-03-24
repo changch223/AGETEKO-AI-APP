@@ -177,6 +177,7 @@ struct ChatView: View {
                             speakText(text)
                         }
                     }
+                   
                 }
                 .navigationBarTitleDisplayMode(.inline)
                 .toolbar {
@@ -240,7 +241,7 @@ struct ChatView: View {
         chatLog.append((text, true))
         
         // 模擬 API 回傳並加上回覆
-        sendChatMessage(message: "ギャル語で全力で褒めて: \(text)") { response in
+        sendChatMessage(inputText: text) { response in
             DispatchQueue.main.async {
                 chatLog.append((response, false))
                 speakText(response)

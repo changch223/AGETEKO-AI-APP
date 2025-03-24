@@ -5,33 +5,87 @@
 //  Created by chang chiawei on 2025-03-19.
 //
 
-import OpenAI
 
-let openAI = OpenAI(apiToken: Secrets.openAIKey)
+    
+import MLCSwift
+import Foundation
 
-func sendChatMessage(message: String, completion: @escaping (String) -> Void) {
-    guard let userMessage = ChatQuery.ChatCompletionMessageParam(role: .user, content: message) else {
-        completion("メッセージを作成できませんでした😢")
-        return
+
+var messages: [[String: String]] = []
+var isLoading: Bool = false
+
+// 建立全域 MLCEngine 實例
+
+let engine = MLCEngine()
+
+
+// 初始化 MLCEngine，載入模型權重與對應的庫
+func initializeEngine() async {
+    // 請根據實際狀況修改 modelPath 與 modelLib
+    // 若模型權重是內嵌在 app 中，可透過 Bundle 取得路徑
+    
+    
+    let modelPath = Bundle.main.path(forResource: "gemma-3-1b-it-q4f16_1", ofType: nil)!
+    let modelLib = "gemma3_text_q4f16_1_c84175f9cc586f4a4ec3b3280b5ffc94"
+    
+    await engine.reload(modelPath: modelPath, modelLib: modelLib)
+    // 可以在初始化後加入提示訊息
+    DispatchQueue.main.async {
+        //messages.append("系統：模型初始化完成！")
+        
+    }
+}
+
+
+// 發送使用者訊息並取得 LLM 回應
+func sendChatMessage(inputText: String, completion: @escaping (String) -> Void) {
+    guard !inputText.trimmingCharacters(in: .whitespacesAndNewlines).isEmpty else { return }
+
+    let userMessage = inputText
+    DispatchQueue.main.async {
+        messages.append(["role": "system", "content": "You are a cheerful, positive gyaru (Japanese fashion girl) who loves to give compliments. Please read the following content and give ONLY positive, girly-style compliments in casual 'gyaru' Japanese."])
+        messages.append(["role": "user", "content": userMessage])
+
+        isLoading = true
     }
 
-    let query = ChatQuery(
-        messages: [userMessage],
-        model: .gpt3_5Turbo
-    )
+   
+    
+    Task {
+        var fullResponse = ""
 
-    openAI.chats(query: query) { result in
-            switch result {
-            case .success(let response):
-                if let content = response.choices.first?.message.content {
-                    completion("\(content)")
-                } else {
-                    completion("応答なし")
+        do {
+            let stream = try await engine.chat.completions.create(
+                messages: [
+                    ChatCompletionMessage(role: .user, content: userMessage)
+                ]
+            )
+
+            for try await res in stream {
+                if let delta = res.choices.first?.delta.content {
+                    let text = delta.asText()
+                    fullResponse += text  // 累積回覆內容
+                    DispatchQueue.main.async {
+                        messages.append([
+                                "role": "system",
+                                "content": text
+                            ])
+                    }
                 }
-            case .failure(let error):
-                print("Error:", error.localizedDescription)
-                completion("なんか問題あったっぽい🥺")
+            }
+            
+            print(messages)
+
+            DispatchQueue.main.async {
+                isLoading = false
+                completion(fullResponse)
+            }
+
+        } catch {
+            print("Error: \(error)")
+            DispatchQueue.main.async {
+                isLoading = false
             }
         }
+    }
 }
-    

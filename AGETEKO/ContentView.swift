@@ -74,6 +74,10 @@ struct ContentView: View {
                 }
                 .padding()
                 .frame(maxWidth: .infinity)
+                .onAppear {
+                    // 初始化引擎
+                    Task { await initializeEngine() }
+                }
             }
         }
     }

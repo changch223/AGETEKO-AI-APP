@@ -1,3 +1,10 @@
+//
+//  Untitled.swift
+//  AGETEKO
+//
+//  Created by chang chiawei on 2025-03-24.
+//
+
 import SwiftUI
 import MLCSwift
 
@@ -73,6 +80,8 @@ struct ChatView2: View {
             isLoading = true
         }
         
+        
+        
         // 呼叫 LLM API，這裡模仿 OpenAI API 的風格進行補全
         for await res in await engine.chat.completions.create(
             messages: [
@@ -87,6 +96,8 @@ struct ChatView2: View {
             }
         }
         
+        print(messages)
+        
         DispatchQueue.main.async {
             isLoading = false
         }
@@ -100,10 +111,4 @@ struct ChatView_Previews: PreviewProvider {
         }
     }
 }
-//
-//  Untitled.swift
-//  AGETEKO
-//
-//  Created by chang chiawei on 2025-03-24.
-//
 
