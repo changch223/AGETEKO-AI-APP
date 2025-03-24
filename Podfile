@@ -8,7 +8,6 @@ target 'AGETEKO' do
   # Pods for AGETEKO
   pod 'Google-Mobile-Ads-SDK'
 
-
   target 'AGETEKOTests' do
     inherit! :search_paths
     # Pods for testing
