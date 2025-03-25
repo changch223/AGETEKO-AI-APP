@@ -1,10 +1,10 @@
 {
   "model_list": [
     {
-      "model_id": "gemma-3-4b-it-q4f16_1-MLC2",
-      "model_lib": "gemma3_q4f16_1_4b6bebbea6c7655a82411e001d5c212b",
-      "model_path": "gemma-3-4b-it-q4f16_1-MLC2",
-      "estimated_vram_bytes": 3000000000
+      "model_id": "gemma-3-1b-it-q4f16_1",
+      "model_lib": "gemma3_text_q4f16_1_c84175f9cc586f4a4ec3b3280b5ffc94",
+      "model_path": "gemma-3-1b-it-q4f16_1",
+      "estimated_vram_bytes": 1400000000
     }
   ]
 }

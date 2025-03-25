@@ -77,8 +77,7 @@ struct ChatView: View {
                                         Image(systemName: "mic.fill")
                                             .foregroundColor(.white)
                                     )
-                                    .opacity(isInputAllowed ? 1.0 : 0.4) // 降低不允許輸入時的透明度
-                                    .allowsHitTesting(isInputAllowed) // 阻止觸控事件
+                                    
                                     .gesture(
                                         DragGesture(minimumDistance: 0)
                                             .onChanged { _ in
@@ -92,7 +91,7 @@ struct ChatView: View {
                                                     do {
                                                         try speechRecognitionManager.startRecording()
                                                     } catch {
-                                                        print("錄音功能發生錯誤: \(error)")
+                                                        print("録音機能エラー発生！: \(error)")
                                                     }
                                                 }
                                             }
@@ -102,10 +101,10 @@ struct ChatView: View {
                                                     return
                                                 }
                                                 if isRecording {
-                                                    DispatchQueue.main.asyncAfter(deadline: .now() + 0.15) {
+                                                    DispatchQueue.main.asyncAfter(deadline: .now() + 0.05) {
                                                         speechRecognitionManager.stopRecording()
                                                         // 延遲等待最後辨識結果
-                                                        DispatchQueue.main.asyncAfter(deadline: .now() + 0.3) {
+                                                        DispatchQueue.main.asyncAfter(deadline: .now() + 0.1) {
                                                             inputText = speechRecognitionManager.recognizedText
                                                             sendMessage(inputText)
                                                             inputText = ""
@@ -138,12 +137,12 @@ struct ChatView: View {
                                         .foregroundColor(.blue)
                                 }
                                 HStack {
-                                    TextField("なんでも話してね🌸", text: $inputText)
+                                    TextField("🌸なんでも話してね🌸", text: $inputText)
                                         .textFieldStyle(.roundedBorder)
                                     Button("送信") {
                                         if isInputAllowed {
                                             sendMessage(inputText)
-                                            inputText = ""
+                                            
                                         } else {
                                             showWaitWarning()
                                         }
@@ -160,26 +159,41 @@ struct ChatView: View {
                     synthesizer.delegate = speechSynthDelegate
                     speechSynthDelegate.onFinish = {
                         let elapsed = Date().timeIntervalSince(self.lastSpeechStartTime ?? Date())
-                        let delay = max(0, 3 - elapsed)
+                        let delay = max(0, 0.3 - elapsed)
                         DispatchQueue.main.asyncAfter(deadline: .now() + delay) {
                             self.isInputAllowed = true
                         }
                     }
                     
                     // 模擬開場訊息與語音播報
-                    let initialMessages = [
-                        "きたきた～！今日もテンアゲでいこ💖 広告なんて気にしないで、あんたの話、ちゃんと聞いてるよん🥰"
+                    
+                    // 模擬開場訊息與語音播報
+                    let openingMessages = [
+                        "きたきた～！今日もテンアゲでいこ💖 あんたの話、ちゃんと聞いてるよん🥰",
+                        "やっほ〜！記憶力ゼロだけど、元気だけはあるよ🌟",
+                        "今日もよろしくねっ💫 ポンコツだけどがんばる～！",
+                        "えっ…なんだっけ？…あ、挨拶だった！やっほ～😳",
+                        "どこまで話したか忘れたけど…キミのことは覚えてるつもり！✨",
+                        "よっしゃ〜！金魚脳だけど一生懸命いくよっ🐟💨",
+                        "えへへ、今日も全力でズレた答え返しちゃうかも💦よろしくぅ！",
+                        "脳みそは3秒だけど、君の応援団だよ📣✨",
+                        "今日も一緒にポンコツりましょっ♪ へへっ😆",
+                        "準備オッケー！たぶん！きっと！おそらく！💪🥺"
                     ]
                     
-                    for (index, text) in initialMessages.enumerated() {
-                        DispatchQueue.main.asyncAfter(deadline: .now() + Double(index)) {
-                            chatLog.append((text, false))
-                            speakText(text)
+                    
+                    // ランダムに1つ選ぶ
+                    if let randomMessage = openingMessages.randomElement() {
+                        DispatchQueue.main.async {
+                            chatLog.append((randomMessage, false))
+                            speakText(randomMessage)
                         }
                     }
+                    
                    
                 }
                 .navigationBarTitleDisplayMode(.inline)
+                .navigationBarHidden(true)
                 .toolbar {
                     // 返回按鈕放置在左側
                     ToolbarItem(placement: .navigationBarLeading) {
@@ -205,7 +219,7 @@ struct ChatView: View {
                 // 顯示等待提示的氣泡視圖
                 Group {
                     if showWarning {
-                        Text("ちょ、待って！まだしゃべってるの〜✨")
+                        Text("ちょ、待って✨")
                             .padding()
                             .background(Color.black.opacity(0.7))
                             .foregroundColor(.white)
@@ -216,41 +230,96 @@ struct ChatView: View {
                 .animation(.easeInOut, value: showWarning)
                 , alignment: .top
             )
-            .navigationBarHidden(true)
+            
+            //.navigationBarTitle("AGETEKO LILY", displayMode: .inline)
+            //.navigationBarBackButtonHidden(true) // 隱藏系統的返回按鈕
         }
     }
     
     // 提示等待的函式
     func showWaitWarning() {
         showWarning = true
-        DispatchQueue.main.asyncAfter(deadline: .now() + 2) {
+        DispatchQueue.main.asyncAfter(deadline: .now() + 0.3) {
             withAnimation {
                 showWarning = false
             }
         }
     }
     
+    // 定型の返答メッセージ一覧（LLM返答前）
+    let predefinedResponses = [
+        "う〜ん…覚えてないけど、全力で考えてみるね！",
+        "ちょっと待ってて…一生懸命ひねり出してるから…！",
+        "ポンコツだけど、一番いい答えを探してるよ！",
+        "3秒前に何言われたか忘れたけど、気持ちはあるよ…！",
+        "がんばって答えを探してるよ！きっと君の役に立ちたいから！",
+        "記憶迷子中…でもキミのことは忘れてないよ！（たぶん）"
+    ]
+    
+    // 新たなフォローアップメッセージ一覧（LLM返答後）
+    let followUpResponses = [
+        "うまく答えられたかな？ドキドキ…",
+        "間違ってたらごめんね。でも精一杯がんばったよ！",
+        "どうだった？少しでも役に立てたらうれしいな！"
+    ]
+    
+    
     // 模擬 API 回傳
     func sendMessage(_ text: String) {
+        
         // 若目前不允許輸入則忽略
         if !isInputAllowed {
             showWaitWarning()
             return
         }
+        
+        inputText = ""
+        
         // 加入使用者訊息
         chatLog.append((text, true))
+        
+        DispatchQueue.main.asyncAfter(deadline: .now() + 0.05) {
+            // 40%の確率で定型の返答を実行
+            if Double.random(in: 0...1) < 0.3 {
+                if let randomResponse = predefinedResponses.randomElement() {
+                    chatLog.append((randomResponse, false))
+                    speakText(randomResponse)
+                }
+            }
+        }
+        
         
         // 模擬 API 回傳並加上回覆
         sendChatMessage(inputText: text) { response in
             DispatchQueue.main.async {
                 chatLog.append((response, false))
                 speakText(response)
+                
+                // 在收到 API 回應後，再延遲執行定型の返答（例如延遲 0.2 秒）
+                DispatchQueue.main.asyncAfter(deadline: .now() + 0.05) {
+                    // 50% 的機率執行定型の跟進訊息
+                    if Double.random(in: 0...1) < 0.3 {
+                        if let randomFollowUp = followUpResponses.randomElement() {
+                            chatLog.append((randomFollowUp, false))
+                            speakText(randomFollowUp)
+                        }
+                    }
+                }
             }
         }
     }
     
+    // 假設 speechAttemptCount 為全域或 class 屬性，初始值為 0
+    var speechAttemptCount = 0
+    
     // 語音播報函式，播報前禁用輸入，並記錄開始時間
     func speakText(_ text: String) {
+        // 如果目前正在播報語音，則不進行新的播報
+        if synthesizer.isSpeaking {
+            
+            synthesizer.stopSpeaking(at: .immediate)
+        }
+        
         lastSpeechStartTime = Date()
         isInputAllowed = false
         let utterance = AVSpeechUtterance(string: text)

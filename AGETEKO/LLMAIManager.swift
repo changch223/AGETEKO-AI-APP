@@ -25,8 +25,8 @@ func initializeEngine() async {
     // 若模型權重是內嵌在 app 中，可透過 Bundle 取得路徑
     
     
-    let modelPath = Bundle.main.path(forResource: "gemma-3-4b-it-q4f16_1-MLC2", ofType: nil)!
-    let modelLib = "gemma3_q4f16_1_4b6bebbea6c7655a82411e001d5c212b"
+    let modelPath = Bundle.main.path(forResource: "gemma-3-1b-it-q4f16_1", ofType: nil)!
+    let modelLib = "gemma3_text_q4f16_1_c84175f9cc586f4a4ec3b3280b5ffc94"
     
     await engine.reload(modelPath: modelPath, modelLib: modelLib)
     // 可以在初始化後加入提示訊息
@@ -41,15 +41,17 @@ func initializeEngine() async {
 func sendChatMessage(inputText: String, completion: @escaping (String) -> Void) {
     guard !inputText.trimmingCharacters(in: .whitespacesAndNewlines).isEmpty else { return }
 
+    let systemPrompt = "you are stupid ai answer with nothing in japanese."
+    
     let userMessage = inputText
     DispatchQueue.main.async {
         messages.append([
                 "role": "system",
-                "content": "あなたは『テンション高めの女子高生』というキャラクターです！元気いっぱいで、ポジティブで、相手のどんな話にもノリよくリアクションしてくれます！相手の短い言葉（例えば『好き』『嫌い』『ばか』など）にも明るく寄り添って、否定せずにリアクションしてください！言葉遣いはカジュアルで、JKっぽい語尾（～だよー！、～じゃん！、～かもー！など）を使って、楽しく返事してください♪返答は短く、ノリ良く、でもちゃんと優しさと共感を忘れずにね。"
+                "content": "you are stupid ai answer with nothing in japanese."
             ])
         messages.append([
                 "role": "user",
-                "content": (userMessage)
+                "content": (systemPrompt+userMessage)
             ])
 
         isLoading = true
