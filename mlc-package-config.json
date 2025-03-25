@@ -2,9 +2,9 @@
   "device": "iphone",
   "model_list": [
     {
-      "model": "HF://changch23/gemma-3-1b-it-q4f16_1-MLC",
-      "model_id": "gemma-3-1b-it-q4f16_1",
-      "estimated_vram_bytes": 1400000000,
+      "model": "HF://changch23/gemma-3-4b-it-q4f16_1-MLC2",
+      "model_id": "gemma-3-4b-it-q4f16_1-MLC2",
+      "estimated_vram_bytes": 3000000000,
       "overrides": {
         "prefill_chunk_size": 128
       },

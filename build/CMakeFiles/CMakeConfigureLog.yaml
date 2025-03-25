@@ -538,3 +538,143 @@ events:
         
       exitCode: 2
 ...
+
+---
+events:
+  -
+    kind: "try_compile-v1"
+    backtrace:
+      - "3rdparty/tvm/CMakeLists.txt:250 (try_compile)"
+    directories:
+      source: "/Users/changchiawei/Desktop/AGETEKO/build/CMakeFiles/CMakeFiles/CMakeTmp"
+      binary: "/Users/changchiawei/Desktop/AGETEKO/build/CMakeFiles/CMakeFiles/CMakeTmp"
+    cmakeVariables:
+      CMAKE_CXX_FLAGS: "-faligned-new -O2 -Wall -fPIC -ffast-math -O3"
+      CMAKE_CXX_FLAGS_DEBUG: "-g"
+      CMAKE_EXE_LINKER_FLAGS: ""
+      CMAKE_OSX_ARCHITECTURES: "arm64"
+      CMAKE_OSX_DEPLOYMENT_TARGET: "14.0"
+      CMAKE_OSX_SYSROOT: "/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS18.2.sdk"
+      CMAKE_POSITION_INDEPENDENT_CODE: "ON"
+    buildResult:
+      variable: "BUILD_FOR_HEXAGON"
+      cached: true
+      stdout: |
+        Change Dir: '/Users/changchiawei/Desktop/AGETEKO/build/CMakeFiles/CMakeFiles/CMakeTmp'
+        
+        Run Build Command(s): /opt/homebrew/bin/cmake -E env VERBOSE=1 /usr/bin/make -f Makefile cmTC_21d43/fast
+        /Applications/Xcode.app/Contents/Developer/usr/bin/make  -f CMakeFiles/cmTC_21d43.dir/build.make CMakeFiles/cmTC_21d43.dir/build
+        Building CXX object CMakeFiles/cmTC_21d43.dir/test_for_hexagon.cc.o
+        /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/c++   -faligned-new -O2 -Wall -fPIC -ffast-math -O3  -std=gnu++17 -arch arm64 -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS18.2.sdk -miphoneos-version-min=14.0 -fPIE -MD -MT CMakeFiles/cmTC_21d43.dir/test_for_hexagon.cc.o -MF CMakeFiles/cmTC_21d43.dir/test_for_hexagon.cc.o.d -o CMakeFiles/cmTC_21d43.dir/test_for_hexagon.cc.o -c /Users/changchiawei/Desktop/AGETEKO/build/CMakeFiles/CMakeTmp/test_for_hexagon.cc
+        /Users/changchiawei/Desktop/AGETEKO/build/CMakeFiles/CMakeTmp/test_for_hexagon.cc:2:2: error: 
+            2 | #error
+              |  ^
+        1 error generated.
+        make[1]: *** [CMakeFiles/cmTC_21d43.dir/test_for_hexagon.cc.o] Error 1
+        make: *** [cmTC_21d43/fast] Error 2
+        
+      exitCode: 2
+  -
+    kind: "try_compile-v1"
+    backtrace:
+      - "3rdparty/tvm/CMakeLists.txt:268 (try_compile)"
+    directories:
+      source: "/Users/changchiawei/Desktop/AGETEKO/build/CMakeFiles/CMakeFiles/CMakeTmp"
+      binary: "/Users/changchiawei/Desktop/AGETEKO/build/CMakeFiles/CMakeFiles/CMakeTmp"
+    cmakeVariables:
+      CMAKE_CXX_FLAGS: "-faligned-new -O2 -Wall -fPIC -ffast-math -O3"
+      CMAKE_CXX_FLAGS_DEBUG: "-g"
+      CMAKE_EXE_LINKER_FLAGS: ""
+      CMAKE_OSX_ARCHITECTURES: "arm64"
+      CMAKE_OSX_DEPLOYMENT_TARGET: "14.0"
+      CMAKE_OSX_SYSROOT: "/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS18.2.sdk"
+      CMAKE_POSITION_INDEPENDENT_CODE: "ON"
+    buildResult:
+      variable: "BUILD_FOR_ANDROID"
+      cached: true
+      stdout: |
+        Change Dir: '/Users/changchiawei/Desktop/AGETEKO/build/CMakeFiles/CMakeFiles/CMakeTmp'
+        
+        Run Build Command(s): /opt/homebrew/bin/cmake -E env VERBOSE=1 /usr/bin/make -f Makefile cmTC_6e518/fast
+        /Applications/Xcode.app/Contents/Developer/usr/bin/make  -f CMakeFiles/cmTC_6e518.dir/build.make CMakeFiles/cmTC_6e518.dir/build
+        Building CXX object CMakeFiles/cmTC_6e518.dir/test_for_android.cc.o
+        /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/c++   -faligned-new -O2 -Wall -fPIC -ffast-math -O3  -std=gnu++17 -arch arm64 -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS18.2.sdk -miphoneos-version-min=14.0 -fPIE -MD -MT CMakeFiles/cmTC_6e518.dir/test_for_android.cc.o -MF CMakeFiles/cmTC_6e518.dir/test_for_android.cc.o.d -o CMakeFiles/cmTC_6e518.dir/test_for_android.cc.o -c /Users/changchiawei/Desktop/AGETEKO/build/CMakeFiles/CMakeTmp/test_for_android.cc
+        /Users/changchiawei/Desktop/AGETEKO/build/CMakeFiles/CMakeTmp/test_for_android.cc:2:2: error: 
+            2 | #error
+              |  ^
+        1 error generated.
+        make[1]: *** [CMakeFiles/cmTC_6e518.dir/test_for_android.cc.o] Error 1
+        make: *** [cmTC_6e518/fast] Error 2
+        
+      exitCode: 2
+...
+
+---
+events:
+  -
+    kind: "try_compile-v1"
+    backtrace:
+      - "3rdparty/tvm/CMakeLists.txt:250 (try_compile)"
+    directories:
+      source: "/Users/changchiawei/Desktop/AGETEKO/build/CMakeFiles/CMakeFiles/CMakeTmp"
+      binary: "/Users/changchiawei/Desktop/AGETEKO/build/CMakeFiles/CMakeFiles/CMakeTmp"
+    cmakeVariables:
+      CMAKE_CXX_FLAGS: "-faligned-new -O2 -Wall -fPIC -ffast-math -O3"
+      CMAKE_CXX_FLAGS_DEBUG: "-g"
+      CMAKE_EXE_LINKER_FLAGS: ""
+      CMAKE_OSX_ARCHITECTURES: "arm64"
+      CMAKE_OSX_DEPLOYMENT_TARGET: "14.0"
+      CMAKE_OSX_SYSROOT: "/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS18.2.sdk"
+      CMAKE_POSITION_INDEPENDENT_CODE: "ON"
+    buildResult:
+      variable: "BUILD_FOR_HEXAGON"
+      cached: true
+      stdout: |
+        Change Dir: '/Users/changchiawei/Desktop/AGETEKO/build/CMakeFiles/CMakeFiles/CMakeTmp'
+        
+        Run Build Command(s): /opt/homebrew/bin/cmake -E env VERBOSE=1 /usr/bin/make -f Makefile cmTC_e8b27/fast
+        /Applications/Xcode.app/Contents/Developer/usr/bin/make  -f CMakeFiles/cmTC_e8b27.dir/build.make CMakeFiles/cmTC_e8b27.dir/build
+        Building CXX object CMakeFiles/cmTC_e8b27.dir/test_for_hexagon.cc.o
+        /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/c++   -faligned-new -O2 -Wall -fPIC -ffast-math -O3  -std=gnu++17 -arch arm64 -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS18.2.sdk -miphoneos-version-min=14.0 -fPIE -MD -MT CMakeFiles/cmTC_e8b27.dir/test_for_hexagon.cc.o -MF CMakeFiles/cmTC_e8b27.dir/test_for_hexagon.cc.o.d -o CMakeFiles/cmTC_e8b27.dir/test_for_hexagon.cc.o -c /Users/changchiawei/Desktop/AGETEKO/build/CMakeFiles/CMakeTmp/test_for_hexagon.cc
+        /Users/changchiawei/Desktop/AGETEKO/build/CMakeFiles/CMakeTmp/test_for_hexagon.cc:2:2: error: 
+            2 | #error
+              |  ^
+        1 error generated.
+        make[1]: *** [CMakeFiles/cmTC_e8b27.dir/test_for_hexagon.cc.o] Error 1
+        make: *** [cmTC_e8b27/fast] Error 2
+        
+      exitCode: 2
+  -
+    kind: "try_compile-v1"
+    backtrace:
+      - "3rdparty/tvm/CMakeLists.txt:268 (try_compile)"
+    directories:
+      source: "/Users/changchiawei/Desktop/AGETEKO/build/CMakeFiles/CMakeFiles/CMakeTmp"
+      binary: "/Users/changchiawei/Desktop/AGETEKO/build/CMakeFiles/CMakeFiles/CMakeTmp"
+    cmakeVariables:
+      CMAKE_CXX_FLAGS: "-faligned-new -O2 -Wall -fPIC -ffast-math -O3"
+      CMAKE_CXX_FLAGS_DEBUG: "-g"
+      CMAKE_EXE_LINKER_FLAGS: ""
+      CMAKE_OSX_ARCHITECTURES: "arm64"
+      CMAKE_OSX_DEPLOYMENT_TARGET: "14.0"
+      CMAKE_OSX_SYSROOT: "/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS18.2.sdk"
+      CMAKE_POSITION_INDEPENDENT_CODE: "ON"
+    buildResult:
+      variable: "BUILD_FOR_ANDROID"
+      cached: true
+      stdout: |
+        Change Dir: '/Users/changchiawei/Desktop/AGETEKO/build/CMakeFiles/CMakeFiles/CMakeTmp'
+        
+        Run Build Command(s): /opt/homebrew/bin/cmake -E env VERBOSE=1 /usr/bin/make -f Makefile cmTC_03144/fast
+        /Applications/Xcode.app/Contents/Developer/usr/bin/make  -f CMakeFiles/cmTC_03144.dir/build.make CMakeFiles/cmTC_03144.dir/build
+        Building CXX object CMakeFiles/cmTC_03144.dir/test_for_android.cc.o
+        /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/c++   -faligned-new -O2 -Wall -fPIC -ffast-math -O3  -std=gnu++17 -arch arm64 -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS18.2.sdk -miphoneos-version-min=14.0 -fPIE -MD -MT CMakeFiles/cmTC_03144.dir/test_for_android.cc.o -MF CMakeFiles/cmTC_03144.dir/test_for_android.cc.o.d -o CMakeFiles/cmTC_03144.dir/test_for_android.cc.o -c /Users/changchiawei/Desktop/AGETEKO/build/CMakeFiles/CMakeTmp/test_for_android.cc
+        /Users/changchiawei/Desktop/AGETEKO/build/CMakeFiles/CMakeTmp/test_for_android.cc:2:2: error: 
+            2 | #error
+              |  ^
+        1 error generated.
+        make[1]: *** [CMakeFiles/cmTC_03144.dir/test_for_android.cc.o] Error 1
+        make: *** [cmTC_03144/fast] Error 2
+        
+      exitCode: 2
+...
