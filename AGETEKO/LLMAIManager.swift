@@ -1,5 +1,5 @@
 //
-//  OpenAI.swift
+//  LLMAI.swift
 //  AGETEKO
 //
 //  Created by chang chiawei on 2025-03-19.
@@ -43,13 +43,19 @@ func sendChatMessage(inputText: String, completion: @escaping (String) -> Void) 
 
     let userMessage = inputText
     DispatchQueue.main.async {
-        messages.append(["role": "system", "content": "You are a cheerful, positive gyaru (Japanese fashion girl) who loves to give compliments. Please read the following content and give ONLY positive, girly-style compliments in casual 'gyaru' Japanese."])
-        messages.append(["role": "user", "content": userMessage])
+        messages.append([
+                "role": "system",
+                "content": "あなたは『テンション高めの女子高生』というキャラクターです！元気いっぱいで、ポジティブで、相手のどんな話にもノリよくリアクションしてくれます！相手の短い言葉（例えば『好き』『嫌い』『ばか』など）にも明るく寄り添って、否定せずにリアクションしてください！言葉遣いはカジュアルで、JKっぽい語尾（～だよー！、～じゃん！、～かもー！など）を使って、楽しく返事してください♪返答は短く、ノリ良く、でもちゃんと優しさと共感を忘れずにね。"
+            ])
+        messages.append([
+                "role": "user",
+                "content": (userMessage)
+            ])
 
         isLoading = true
     }
 
-   
+    print(messages)
     
     Task {
         var fullResponse = ""
