@@ -25,8 +25,8 @@ func initializeEngine() async {
     // 若模型權重是內嵌在 app 中，可透過 Bundle 取得路徑
     
     
-    let modelPath = Bundle.main.path(forResource: "gemma-3-1b-it-q4f16_1", ofType: nil)!
-    let modelLib = "gemma3_text_q4f16_1_c84175f9cc586f4a4ec3b3280b5ffc94"
+    let modelPath = Bundle.main.path(forResource: "gemma-3-4b-it-q4f16_1-MLC2", ofType: nil)!
+    let modelLib = "gemma3_q4f16_1_4b6bebbea6c7655a82411e001d5c212b"
     
     await engine.reload(modelPath: modelPath, modelLib: modelLib)
     // 可以在初始化後加入提示訊息

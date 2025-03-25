@@ -11,7 +11,7 @@
 		5755742A2D910BFD005E4254 /* dist in Frameworks */ = {isa = PBXBuildFile; fileRef = 575574292D910BFD005E4254 /* dist */; };
 		575576242D91127D005E4254 /* MLCSwift in Frameworks */ = {isa = PBXBuildFile; productRef = 575576232D91127D005E4254 /* MLCSwift */; };
 		575576262D9115DB005E4254 /* WebKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 575576252D9115DB005E4254 /* WebKit.framework */; };
-		5755770D2D91947F005E4254 /* gemma-3-1b-it-q4f16_1 in Resources */ = {isa = PBXBuildFile; fileRef = 5755770C2D91947F005E4254 /* gemma-3-1b-it-q4f16_1 */; };
+		575578A52D926881005E4254 /* gemma-3-4b-it-q4f16_1-MLC2 in Resources */ = {isa = PBXBuildFile; fileRef = 575578A42D926881005E4254 /* gemma-3-4b-it-q4f16_1-MLC2 */; };
 		57A2E8482D8B2ED00086A056 /* OpenAI in Frameworks */ = {isa = PBXBuildFile; productRef = 57A2E8472D8B2ED00086A056 /* OpenAI */; };
 		57A2EE972D8CF8830086A056 /* GoogleMobileAds in Frameworks */ = {isa = PBXBuildFile; productRef = 57A2EE962D8CF8830086A056 /* GoogleMobileAds */; };
 		826DA6E4E72A270B4973B8A4 /* Pods_AGETEKOTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FE87C0AE8C8ACD98DBA3FE04 /* Pods_AGETEKOTests.framework */; };
@@ -42,6 +42,9 @@
 		575576252D9115DB005E4254 /* WebKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = WebKit.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS18.2.sdk/System/Library/Frameworks/WebKit.framework; sourceTree = DEVELOPER_DIR; };
 		575576292D911B99005E4254 /* Llama-3.2-3B-Instruct-q4f16_1-MLC */ = {isa = PBXFileReference; lastKnownFileType = folder; name = "Llama-3.2-3B-Instruct-q4f16_1-MLC"; path = "AGETEKO/dist/bundle/Llama-3.2-3B-Instruct-q4f16_1-MLC"; sourceTree = "<group>"; };
 		5755770C2D91947F005E4254 /* gemma-3-1b-it-q4f16_1 */ = {isa = PBXFileReference; lastKnownFileType = folder; name = "gemma-3-1b-it-q4f16_1"; path = "AGETEKO/dist/bundle/gemma-3-1b-it-q4f16_1"; sourceTree = "<group>"; };
+		575578A02D92673A005E4254 /* bundle */ = {isa = PBXFileReference; lastKnownFileType = folder; name = bundle; path = AGETEKO/dist/bundle; sourceTree = "<group>"; };
+		575578A22D926859005E4254 /* dist */ = {isa = PBXFileReference; lastKnownFileType = folder; name = dist; path = AGETEKO/dist; sourceTree = "<group>"; };
+		575578A42D926881005E4254 /* gemma-3-4b-it-q4f16_1-MLC2 */ = {isa = PBXFileReference; lastKnownFileType = folder; name = "gemma-3-4b-it-q4f16_1-MLC2"; path = "AGETEKO/dist/bundle/gemma-3-4b-it-q4f16_1-MLC2"; sourceTree = "<group>"; };
 		57D421D92D89E49F008CD006 /* AGETEKO.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = AGETEKO.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		57D421EA2D89E4A0008CD006 /* AGETEKOTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = AGETEKOTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		57D421F42D89E4A0008CD006 /* AGETEKOUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = AGETEKOUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -59,6 +62,29 @@
 		57A2E8582D8B3BF90086A056 /* Exceptions for "AGETEKO" folder in "AGETEKO" target */ = {
 			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
 			membershipExceptions = (
+				"dist/bundle/gemma-3-1b-it-q4f16_1/.gitattributes",
+				"dist/bundle/gemma-3-1b-it-q4f16_1/added_tokens.json",
+				"dist/bundle/gemma-3-1b-it-q4f16_1/mlc-chat-config.json",
+				"dist/bundle/gemma-3-1b-it-q4f16_1/ndarray-cache.json",
+				"dist/bundle/gemma-3-1b-it-q4f16_1/params_shard_0.bin",
+				"dist/bundle/gemma-3-1b-it-q4f16_1/params_shard_1.bin",
+				"dist/bundle/gemma-3-1b-it-q4f16_1/params_shard_2.bin",
+				"dist/bundle/gemma-3-1b-it-q4f16_1/params_shard_3.bin",
+				"dist/bundle/gemma-3-1b-it-q4f16_1/params_shard_4.bin",
+				"dist/bundle/gemma-3-1b-it-q4f16_1/params_shard_5.bin",
+				"dist/bundle/gemma-3-1b-it-q4f16_1/params_shard_6.bin",
+				"dist/bundle/gemma-3-1b-it-q4f16_1/params_shard_7.bin",
+				"dist/bundle/gemma-3-1b-it-q4f16_1/params_shard_8.bin",
+				"dist/bundle/gemma-3-1b-it-q4f16_1/params_shard_9.bin",
+				"dist/bundle/gemma-3-1b-it-q4f16_1/params_shard_10.bin",
+				"dist/bundle/gemma-3-1b-it-q4f16_1/params_shard_11.bin",
+				"dist/bundle/gemma-3-1b-it-q4f16_1/params_shard_12.bin",
+				"dist/bundle/gemma-3-1b-it-q4f16_1/params_shard_13.bin",
+				"dist/bundle/gemma-3-1b-it-q4f16_1/params_shard_14.bin",
+				"dist/bundle/gemma-3-1b-it-q4f16_1/README.md",
+				"dist/bundle/gemma-3-1b-it-q4f16_1/tokenizer_config.json",
+				"dist/bundle/gemma-3-1b-it-q4f16_1/tokenizer.json",
+				"dist/bundle/gemma-3-1b-it-q4f16_1/tokenizer.model",
 				"dist/bundle/Llama-3.2-3B-Instruct-q4f16_1-MLC/.gitattributes",
 				"dist/bundle/Llama-3.2-3B-Instruct-q4f16_1-MLC/mlc-chat-config.json",
 				"dist/bundle/Llama-3.2-3B-Instruct-q4f16_1-MLC/ndarray-cache.json",
@@ -186,6 +212,9 @@
 		57D421D02D89E49F008CD006 = {
 			isa = PBXGroup;
 			children = (
+				575578A42D926881005E4254 /* gemma-3-4b-it-q4f16_1-MLC2 */,
+				575578A22D926859005E4254 /* dist */,
+				575578A02D92673A005E4254 /* bundle */,
 				5755770C2D91947F005E4254 /* gemma-3-1b-it-q4f16_1 */,
 				575576292D911B99005E4254 /* Llama-3.2-3B-Instruct-q4f16_1-MLC */,
 				575574BD2D910FBA005E4254 /* bundle */,
@@ -362,7 +391,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				5755770D2D91947F005E4254 /* gemma-3-1b-it-q4f16_1 in Resources */,
+				575578A52D926881005E4254 /* gemma-3-4b-it-q4f16_1-MLC2 in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
