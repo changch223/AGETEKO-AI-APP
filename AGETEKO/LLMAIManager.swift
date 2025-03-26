@@ -41,17 +41,17 @@ func initializeEngine() async {
 func sendChatMessage(inputText: String, completion: @escaping (String) -> Void) {
     guard !inputText.trimmingCharacters(in: .whitespacesAndNewlines).isEmpty else { return }
 
-    let systemPrompt = "you are stupid ai answer with nothing in japanese."
+    let systemPrompt = "you are stupid ai answer with nothing and short in japanese."
     
     let userMessage = inputText
     DispatchQueue.main.async {
         messages.append([
                 "role": "system",
-                "content": "you are stupid ai answer with nothing in japanese."
+                "content": "you are stupid ai answer with nothing and short in japanese."
             ])
         messages.append([
                 "role": "user",
-                "content": (systemPrompt+userMessage)
+                "content": (userMessage)
             ])
 
         isLoading = true

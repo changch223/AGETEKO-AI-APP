@@ -17,10 +17,8 @@ struct ChatView: View {
     @State private var synthesizer = AVSpeechSynthesizer()
     @State private var isRecording: Bool = false
     @StateObject private var speechRecognitionManager = SpeechRecognitionManager()
-    @State private var isVoiceMode: Bool = true  // true = 語音辨識模式，false = 文字輸入模式
+    @State private var isVoiceMode: Bool = false  // true = 語音辨識模式，false = 文字輸入模式
     
-    // 控制是否允許使用麥克風或送出文字
-    @State private var isInputAllowed: Bool = true
     // 記錄語音輸出開始的時間
     @State private var lastSpeechStartTime: Date? = nil
     // 語音播報 delegate 物件
@@ -29,217 +27,183 @@ struct ChatView: View {
     // 新增：用來顯示等待提示的狀態
     @State private var showWarning: Bool = false
     
+    // 新增：控制語音輸入是否被允許
+    @State private var isInputAllowed: Bool = true
+    
     var body: some View {
-        NavigationView {
-            ZStack {
-                Color("AppBackground").ignoresSafeArea()
+        
+        ZStack {
+            Color("AppBackground").ignoresSafeArea()
+            
+            // 主畫面內容
+            VStack {
+                // 1) 置頂 Banner
+                BannerAdView(adUnitID:"ca-app-pub-9275380963550837/4750274541")
+                    .frame(height: 50)
                 
-                // 主畫面內容
-                VStack {
-                    // 1) 置頂 Banner
-                    BannerAdView(adUnitID:"ca-app-pub-9275380963550837/4750274541")
-                        .frame(height: 50)
-                    
-                    Spacer()
-                    
-                    // 2) 使用 ScrollViewReader 以便自動捲動
-                    ScrollViewReader { scrollProxy in
-                        ScrollView {
-                            VStack(alignment: .leading, spacing: 8) {
-                                ForEach(chatLog.indices, id: \.self) { index in
-                                    let (message, isUser) = chatLog[index]
-                                    MessageBubble(message: message, isUser: isUser)
-                                        .id(index)
-                                }
+                Spacer()
+                
+                // 2) 使用 ScrollViewReader 以便自動捲動
+                ScrollViewReader { scrollProxy in
+                    ScrollView {
+                        VStack(alignment: .leading, spacing: 8) {
+                            ForEach(chatLog.indices, id: \.self) { index in
+                                let (message, isUser) = chatLog[index]
+                                MessageBubble(message: message, isUser: isUser)
+                                    .id(index)
                             }
-                            .padding(.horizontal, 12)
-                            .padding(.vertical, 8)
                         }
-                        .background(Color("AppBackground").ignoresSafeArea())
-                        .onChange(of: chatLog.count) { _ in
-                            if let lastIndex = chatLog.indices.last {
-                                withAnimation {
-                                    scrollProxy.scrollTo(lastIndex, anchor: .bottom)
-                                }
+                        .padding(.horizontal, 12)
+                        .padding(.vertical, 8)
+                    }
+                    .background(Color("AppBackground").ignoresSafeArea())
+                    .onChange(of: chatLog.count) { _ in
+                        if let lastIndex = chatLog.indices.last {
+                            withAnimation {
+                                scrollProxy.scrollTo(lastIndex, anchor: .bottom)
                             }
                         }
                     }
-                    
-                    // 3) 輸入區域：根據模式顯示不同介面
-                    Group {
-                        if isVoiceMode {
-                            VStack {
-                                // 麥克風按鈕，先檢查 isInputAllowed
-                                Circle()
-                                    .fill(isRecording ? Color.red : Color.blue)
-                                    .frame(width: 80, height: 80)
-                                    .overlay(
-                                        Image(systemName: "mic.fill")
-                                            .foregroundColor(.white)
-                                    )
-                                    
-                                    .gesture(
-                                        DragGesture(minimumDistance: 0)
-                                            .onChanged { _ in
-                                                // 檢查是否允許輸入
-                                                if !isInputAllowed {
-                                                    showWaitWarning()
-                                                    return
-                                                }
-                                                if !isRecording {
-                                                    isRecording = true
-                                                    do {
-                                                        try speechRecognitionManager.startRecording()
-                                                    } catch {
-                                                        print("録音機能エラー発生！: \(error)")
-                                                    }
+                }
+                
+                // 3) 輸入區域：根據模式顯示不同介面
+                Group {
+                    if isVoiceMode {
+                        VStack {
+                            // 麥克風按鈕，先檢查 isInputAllowed
+                            Circle()
+                                .fill(isRecording ? Color.red : Color.blue)
+                                .frame(width: 80, height: 80)
+                                .overlay(
+                                    Image(systemName: "mic.fill")
+                                        .foregroundColor(.white)
+                                )
+                                .gesture(
+                                    DragGesture(minimumDistance: 0)
+                                        .onChanged { _ in
+                                            if !isRecording {
+                                                isRecording = true
+                                                do {
+                                                    try speechRecognitionManager.startRecording()
+                                                } catch {
+                                                    print("録音機能エラー発生！: \(error)")
                                                 }
                                             }
-                                            .onEnded { _ in
-                                                if !isInputAllowed {
-                                                    showWaitWarning()
-                                                    return
-                                                }
-                                                if isRecording {
-                                                    DispatchQueue.main.asyncAfter(deadline: .now() + 0.05) {
-                                                        speechRecognitionManager.stopRecording()
-                                                        // 延遲等待最後辨識結果
-                                                        DispatchQueue.main.asyncAfter(deadline: .now() + 0.1) {
-                                                            inputText = speechRecognitionManager.recognizedText
-                                                            sendMessage(inputText)
-                                                            inputText = ""
-                                                            isRecording = false
-                                                        }
-                                                    }
+                                        }
+                                        .onEnded { _ in
+                                            if isRecording {
+                                                speechRecognitionManager.stopRecording()
+                                                // 延遲等待最後辨識結果
+                                                DispatchQueue.main.asyncAfter(deadline: .now() + 0.2) {
+                                                    inputText = speechRecognitionManager.recognizedText
+                                                    sendMessage(inputText)
+                                                    inputText = ""
+                                                    isRecording = false
                                                 }
                                             }
-                                    )
-                                    .padding(.bottom, 0)
-                                HStack {
-                                    Spacer()
-                                    Button(action: {
-                                        isVoiceMode.toggle()
-                                    }) {
-                                        Text("恥ず？なら文字入力👌")
-                                            .font(.caption)
-                                            .foregroundColor(.blue)
-                                    }
-                                    .padding(0)
-                                }
-                            }
-                        } else {
-                            VStack(spacing: 4) {
+                                        }
+                                )
+                                .padding(.bottom, 0)
+                            HStack {
+                                Spacer()
                                 Button(action: {
                                     isVoiceMode.toggle()
                                 }) {
-                                    Text("やっぱ音声入力🔥")
+                                    Text("恥ず？なら文字入力👌")
                                         .font(.caption)
                                         .foregroundColor(.blue)
                                 }
-                                HStack {
-                                    TextField("🌸なんでも話してね🌸", text: $inputText)
-                                        .textFieldStyle(.roundedBorder)
-                                    Button("送信") {
-                                        if isInputAllowed {
-                                            sendMessage(inputText)
-                                            
-                                        } else {
-                                            showWaitWarning()
-                                        }
-                                    }
+                                .padding(0)
+                            }
+                        }
+                    } else {
+                        VStack(spacing: 4) {
+                            Button(action: {
+                                isVoiceMode.toggle()
+                            }) {
+                                Text("音声入力がいちばん🔥 ただ、しゃべりながら聞くのムズいかも！")
+                                    .font(.caption)
+                                    .foregroundColor(.blue)
+                            }
+                            HStack {
+                                TextField("🌸なんでも話してね🌸", text: $inputText)
+                                    .textFieldStyle(.roundedBorder)
+                                Button("送信") {
+                                    sendMessage(inputText)
                                 }
                             }
-                            .padding()
                         }
                     }
-                    .padding(.bottom, 20)
                 }
-                .onAppear {
-                    // 設定 synthesizer delegate 與 onFinish callback
-                    synthesizer.delegate = speechSynthDelegate
-                    speechSynthDelegate.onFinish = {
-                        let elapsed = Date().timeIntervalSince(self.lastSpeechStartTime ?? Date())
-                        let delay = max(0, 0.3 - elapsed)
-                        DispatchQueue.main.asyncAfter(deadline: .now() + delay) {
-                            self.isInputAllowed = true
-                        }
+                .padding(.horizontal, 16)  // 左右留 16 的空間
+                .padding(.bottom, 16)
+            }
+            .onAppear {
+                // 設定 synthesizer delegate 與 onFinish callback
+                synthesizer.delegate = speechSynthDelegate
+                speechSynthDelegate.onFinish = {
+                    let elapsed = Date().timeIntervalSince(self.lastSpeechStartTime ?? Date())
+                    let delay = max(0, 0.3 - elapsed)
+                    DispatchQueue.main.asyncAfter(deadline: .now() + delay) {
+                        self.isInputAllowed = true
                     }
-                    
-                    // 模擬開場訊息與語音播報
-                    
-                    // 模擬開場訊息與語音播報
-                    let openingMessages = [
-                        "きたきた～！今日もテンアゲでいこ💖 あんたの話、ちゃんと聞いてるよん🥰",
-                        "やっほ〜！記憶力ゼロだけど、元気だけはあるよ🌟",
-                        "今日もよろしくねっ💫 ポンコツだけどがんばる～！",
-                        "えっ…なんだっけ？…あ、挨拶だった！やっほ～😳",
-                        "どこまで話したか忘れたけど…キミのことは覚えてるつもり！✨",
-                        "よっしゃ〜！金魚脳だけど一生懸命いくよっ🐟💨",
-                        "えへへ、今日も全力でズレた答え返しちゃうかも💦よろしくぅ！",
-                        "脳みそは3秒だけど、君の応援団だよ📣✨",
-                        "今日も一緒にポンコツりましょっ♪ へへっ😆",
-                        "準備オッケー！たぶん！きっと！おそらく！💪🥺"
-                    ]
-                    
-                    
-                    // ランダムに1つ選ぶ
-                    if let randomMessage = openingMessages.randomElement() {
-                        DispatchQueue.main.async {
-                            chatLog.append((randomMessage, false))
-                            speakText(randomMessage)
-                        }
-                    }
-                    
-                   
                 }
-                .navigationBarTitleDisplayMode(.inline)
-                .navigationBarHidden(true)
-                .toolbar {
-                    // 返回按鈕放置在左側
-                    ToolbarItem(placement: .navigationBarLeading) {
-                        Button(action: {
-                            presentationMode.wrappedValue.dismiss()
-                        }) {
-                            HStack {
-                                Image(systemName: "chevron.left")
-                                Text("Back")
-                            }
-                            .foregroundColor(.blue)
-                        }
-                    }
-                    // 置中標題
-                    ToolbarItem(placement: .principal) {
-                        Text("AGETEKO LILY")
-                            .font(.headline)
-                            .foregroundColor(.primary)
+                
+                // 模擬開場訊息與語音播報
+                let openingMessages = [
+                    "きたきた～！今日もテンアゲでいこ💖 あんたの話、ちゃんと聞いてるよん🥰",
+                    "やっほ〜！記憶力ゼロだけど、元気だけはあるよ🌟",
+                    "今日もよろしくねっ💫 ポンコツだけどがんばる～！",
+                    "えっ…なんだっけ？…あ、挨拶だった！やっほ～😳",
+                    "どこまで話したか忘れたけど…キミのことは覚えてるつもり！✨",
+                    "よっしゃ〜！金魚脳だけど一生懸命いくよっ🐟💨",
+                    "えへへ、今日も全力でズレた答え返しちゃうかも💦よろしくぅ！",
+                    "脳みそは3秒だけど、君の応援団だよ📣✨",
+                    "今日も一緒にポンコツりましょっ♪ へへっ😆",
+                    "準備オッケー！たぶん！きっと！おそらく！💪🥺"
+                ]
+                
+                // 隨機選取一則訊息並播報
+                if let randomMessage = openingMessages.randomElement() {
+                    DispatchQueue.main.async {
+                        chatLog.append((randomMessage, false))
+                        speakText(randomMessage)
                     }
                 }
             }
-            .overlay(
-                // 顯示等待提示的氣泡視圖
-                Group {
-                    if showWarning {
-                        Text("ちょ、待って✨")
-                            .padding()
-                            .background(Color.black.opacity(0.7))
-                            .foregroundColor(.white)
-                            .cornerRadius(10)
-                            .transition(.opacity)
-                    }
+            .navigationBarTitleDisplayMode(.inline)
+            .toolbar {
+                
+                // 中間顯示標題
+                ToolbarItem(placement: .principal) {
+                    Text("AGETEKO LILY")
+                        .font(.headline)
+                        .foregroundColor(.primary)
                 }
-                .animation(.easeInOut, value: showWarning)
-                , alignment: .top
-            )
-            
-            //.navigationBarTitle("AGETEKO LILY", displayMode: .inline)
-            //.navigationBarBackButtonHidden(true) // 隱藏系統的返回按鈕
+            }
         }
+        .overlay(
+            // 顯示等待提示的氣泡視圖
+            Group {
+                if showWarning {
+                    Text("ちょ、待って連続で喋れない✨")
+                        .padding()
+                        .background(Color.black.opacity(0.7))
+                        .foregroundColor(.white)
+                        .cornerRadius(10)
+                        .transition(.opacity)
+                }
+            }
+                .animation(.easeInOut, value: showWarning),
+            alignment: .top
+        )
     }
+    
     
     // 提示等待的函式
     func showWaitWarning() {
         showWarning = true
-        DispatchQueue.main.asyncAfter(deadline: .now() + 0.3) {
+        DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) {
             withAnimation {
                 showWarning = false
             }
@@ -263,65 +227,57 @@ struct ChatView: View {
         "どうだった？少しでも役に立てたらうれしいな！"
     ]
     
-    
     // 模擬 API 回傳
     func sendMessage(_ text: String) {
-        
-        // 若目前不允許輸入則忽略
-        if !isInputAllowed {
-            showWaitWarning()
+        // 檢查訊息是否為空
+        guard !text.trimmingCharacters(in: .whitespacesAndNewlines).isEmpty else {
             return
         }
         
-        inputText = ""
-        
         // 加入使用者訊息
         chatLog.append((text, true))
+        inputText = ""
         
-        DispatchQueue.main.asyncAfter(deadline: .now() + 0.05) {
-            // 40%の確率で定型の返答を実行
-            if Double.random(in: 0...1) < 0.3 {
-                if let randomResponse = predefinedResponses.randomElement() {
-                    chatLog.append((randomResponse, false))
-                    speakText(randomResponse)
-                }
+        // 30% の機率執行定型の返答
+        if Double.random(in: 0...1) < 0.3 {
+            if let randomResponse = predefinedResponses.randomElement() {
+                chatLog.append((randomResponse, false))
+                speakText(randomResponse)
             }
         }
         
+        // 新增 placeholder 對話泡泡，顯示等待狀態
+        let placeholder = "ちょい待ち..."
+        chatLog.append((placeholder, false))
+        let placeholderIndex = chatLog.count - 1
         
-        // 模擬 API 回傳並加上回覆
+        // API 回傳並更新 placeholder
         sendChatMessage(inputText: text) { response in
             DispatchQueue.main.async {
-                chatLog.append((response, false))
+                chatLog[placeholderIndex] = (response, false)
                 speakText(response)
                 
-                // 在收到 API 回應後，再延遲執行定型の返答（例如延遲 0.2 秒）
-                DispatchQueue.main.asyncAfter(deadline: .now() + 0.05) {
-                    // 50% 的機率執行定型の跟進訊息
-                    if Double.random(in: 0...1) < 0.3 {
-                        if let randomFollowUp = followUpResponses.randomElement() {
-                            chatLog.append((randomFollowUp, false))
-                            speakText(randomFollowUp)
-                        }
+                // 50% の機率執行定型の跟進訊息
+                if Double.random(in: 0...1) < 0.3 {
+                    if let randomFollowUp = followUpResponses.randomElement() {
+                        chatLog.append((randomFollowUp, false))
+                        speakText(randomFollowUp)
                     }
                 }
             }
         }
     }
     
-    // 假設 speechAttemptCount 為全域或 class 屬性，初始值為 0
     var speechAttemptCount = 0
     
-    // 語音播報函式，播報前禁用輸入，並記錄開始時間
+    // 語音播報函式：若正在播報，則忽略新的播報請求
     func speakText(_ text: String) {
-        // 如果目前正在播報語音，則不進行新的播報
+        // 如果目前正在播報，就先停止目前的語音播報
         if synthesizer.isSpeaking {
-            
             synthesizer.stopSpeaking(at: .immediate)
         }
         
         lastSpeechStartTime = Date()
-        isInputAllowed = false
         let utterance = AVSpeechUtterance(string: text)
         utterance.voice = AVSpeechSynthesisVoice(language: "ja-JP")
         synthesizer.speak(utterance)
@@ -341,11 +297,10 @@ struct ChatView: View {
                     Spacer(minLength: 20)
                     Text(message)
                         .padding()
-                        .background(isUser ? Color.blue.opacity(0.2) : Color(red: 1.0, green: 0.8, blue: 0.9))
+                        .background(Color.blue.opacity(0.2))
                         .cornerRadius(12)
                         .frame(maxWidth: bubbleMaxWidth, alignment: .trailing)
-                }
-                if !isUser {
+                } else {
                     Text(message)
                         .padding()
                         .background(Color.pink.opacity(0.2))
