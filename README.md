@@ -22,7 +22,7 @@ AGETEKO LILY は、忘れっぽくてポンコツなAI「Lily」が、
 - 個人情報の取得や外部保存は一切行っておりません
 
 📩 サポートメール：irairappo@gmail.com  
-📄 プライバシーポリシー：https://www.notion.so/AGETEKO-LILY-1c35a1f77b5e80d38465e81f5e6d2cd7  
+📄 プライバシーポリシー：[https://www.notion.so/AGETEKO-LILY-1c35a1f77b5e80d38465e81f5e6d2cd7  ](https://yummy-lantern-df8.notion.site/AGETEKO-LILY-1c35a1f77b5e8081b9c3c1b6ac8bd118?pvs=4)
 📖 サポートページ：https://changch223.github.io/
 
 ---
