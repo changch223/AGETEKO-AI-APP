@@ -31,7 +31,7 @@ func initializeEngine() async {
     await engine.reload(modelPath: modelPath, modelLib: modelLib)
     // 可以在初始化後加入提示訊息
     DispatchQueue.main.async {
-        //messages.append("系統：模型初始化完成！")
+        //messages.append("システム：モデルの初期化が完了しました！")
         
     }
 }

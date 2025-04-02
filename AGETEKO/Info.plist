@@ -4,10 +4,6 @@
 <dict>
 	<key>GADApplicationIdentifier</key>
 	<string>ca-app-pub-9275380963550837~4564272401</string>
-	<key>NSSpeechRecognitionUsageDescription</key>
-	<string>しゃべるには音声認識の許可ちょーだい</string>
-	<key>NSMicrophoneUsageDescription</key>
-	<string>マイク使うには許可おねが～い🎤💕</string>
 	<key>SKAdNetworkItems</key>
 	<array>
 		<dict>

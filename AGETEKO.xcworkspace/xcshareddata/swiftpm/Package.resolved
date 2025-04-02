@@ -1,15 +1,6 @@
 {
-  "originHash" : "fc756e9bfd999d4bbb27ba6eb9f1f90200375a9fdb41540e55f303b0976c3db4",
+  "originHash" : "f1995b58cb5bbbc91589b09a34c8f31955d7149d1f861fec1e88f621193b09ec",
   "pins" : [
-    {
-      "identity" : "openai",
-      "kind" : "remoteSourceControl",
-      "location" : "https://github.com/MacPaw/OpenAI.git",
-      "state" : {
-        "revision" : "e59e4923acc924db51d415e99d0a76c7d54037e0",
-        "version" : "0.3.6"
-      }
-    },
     {
       "identity" : "swift-package-manager-google-mobile-ads",
       "kind" : "remoteSourceControl",

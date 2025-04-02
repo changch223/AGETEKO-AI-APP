@@ -12,7 +12,6 @@
 		5755742A2D910BFD005E4254 /* dist in Frameworks */ = {isa = PBXBuildFile; fileRef = 575574292D910BFD005E4254 /* dist */; };
 		575576242D91127D005E4254 /* MLCSwift in Frameworks */ = {isa = PBXBuildFile; productRef = 575576232D91127D005E4254 /* MLCSwift */; };
 		575576262D9115DB005E4254 /* WebKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 575576252D9115DB005E4254 /* WebKit.framework */; };
-		57A2E8482D8B2ED00086A056 /* OpenAI in Frameworks */ = {isa = PBXBuildFile; productRef = 57A2E8472D8B2ED00086A056 /* OpenAI */; };
 		57A2EE972D8CF8830086A056 /* GoogleMobileAds in Frameworks */ = {isa = PBXBuildFile; productRef = 57A2EE962D8CF8830086A056 /* GoogleMobileAds */; };
 		826DA6E4E72A270B4973B8A4 /* Pods_AGETEKOTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FE87C0AE8C8ACD98DBA3FE04 /* Pods_AGETEKOTests.framework */; };
 		CEC3B7F73935B5973B4E0FCA /* Pods_AGETEKO_AGETEKOUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F32265005AB2AE06BB759BC2 /* Pods_AGETEKO_AGETEKOUITests.framework */; };
@@ -62,6 +61,7 @@
 		57A2E8582D8B3BF90086A056 /* Exceptions for "AGETEKO" folder in "AGETEKO" target */ = {
 			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
 			membershipExceptions = (
+				"/Localized: InfoPlist.strings",
 				"dist/bundle/Llama-3.2-3B-Instruct-q4f16_1-MLC/.gitattributes",
 				"dist/bundle/Llama-3.2-3B-Instruct-q4f16_1-MLC/mlc-chat-config.json",
 				"dist/bundle/Llama-3.2-3B-Instruct-q4f16_1-MLC/ndarray-cache.json",
@@ -162,7 +162,6 @@
 				5755742A2D910BFD005E4254 /* dist in Frameworks */,
 				575576242D91127D005E4254 /* MLCSwift in Frameworks */,
 				57A2EE972D8CF8830086A056 /* GoogleMobileAds in Frameworks */,
-				57A2E8482D8B2ED00086A056 /* OpenAI in Frameworks */,
 				255AE2E025E4F716FAAB9043 /* Pods_AGETEKO.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -261,7 +260,6 @@
 			);
 			name = AGETEKO;
 			packageProductDependencies = (
-				57A2E8472D8B2ED00086A056 /* OpenAI */,
 				57A2EE962D8CF8830086A056 /* GoogleMobileAds */,
 				575576232D91127D005E4254 /* MLCSwift */,
 			);
@@ -338,16 +336,16 @@
 				};
 			};
 			buildConfigurationList = 57D421D42D89E49F008CD006 /* Build configuration list for PBXProject "AGETEKO" */;
-			developmentRegion = en;
+			developmentRegion = ja;
 			hasScannedForEncodings = 0;
 			knownRegions = (
 				en,
 				Base,
+				ja,
 			);
 			mainGroup = 57D421D02D89E49F008CD006;
 			minimizedProjectReferenceProxies = 1;
 			packageReferences = (
-				57A2E8462D8B2ED00086A056 /* XCRemoteSwiftPackageReference "OpenAI" */,
 				57A2EE952D8CF8830086A056 /* XCRemoteSwiftPackageReference "swift-package-manager-google-mobile-ads" */,
 				575576222D91127D005E4254 /* XCLocalSwiftPackageReference "../mlc-llm/ios/MLCSwift" */,
 			);
@@ -665,8 +663,8 @@
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = AGETEKO/Info.plist;
-				INFOPLIST_KEY_NSMicrophoneUsageDescription = "$(PRODUCT_NAME)此應用程式使用您的麥克風來處理語音輸入";
-				INFOPLIST_KEY_NSSpeechRecognitionUsageDescription = "$(PRODUCT_NAME)需要語音識別功能來轉換您的語音為文字";
+				INFOPLIST_KEY_NSMicrophoneUsageDescription = "音声入力のためにマイクへのアクセスを許可してください";
+				INFOPLIST_KEY_NSSpeechRecognitionUsageDescription = "Lilyと会話するために音声認識を使用します";
 				"INFOPLIST_KEY_UIApplicationSceneManifest_Generation[sdk=iphoneos*]" = YES;
 				"INFOPLIST_KEY_UIApplicationSceneManifest_Generation[sdk=iphonesimulator*]" = YES;
 				"INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents[sdk=iphoneos*]" = YES;
@@ -691,7 +689,7 @@
 					"$(PROJECT_DIR)/AGETEKO/dist-back-up-gemma-1b/lib",
 				);
 				MACOSX_DEPLOYMENT_TARGET = 15.2;
-				MARKETING_VERSION = 1.01;
+				MARKETING_VERSION = 1.03;
 				OTHER_LDFLAGS = (
 					"$(inherited)",
 					"-ObjC",
@@ -761,11 +759,11 @@
 				PRODUCT_BUNDLE_IDENTIFIER = CHIA.AGETEKO;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SDKROOT = auto;
-				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator macosx xros xrsimulator";
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
 				SUPPORTS_MACCATALYST = NO;
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,7";
+				TARGETED_DEVICE_FAMILY = 1;
 				XROS_DEPLOYMENT_TARGET = 2.2;
 			};
 			name = Debug;
@@ -786,8 +784,8 @@
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = AGETEKO/Info.plist;
-				INFOPLIST_KEY_NSMicrophoneUsageDescription = "$(PRODUCT_NAME)此應用程式使用您的麥克風來處理語音輸入";
-				INFOPLIST_KEY_NSSpeechRecognitionUsageDescription = "$(PRODUCT_NAME)需要語音識別功能來轉換您的語音為文字";
+				INFOPLIST_KEY_NSMicrophoneUsageDescription = "音声入力のためにマイクへのアクセスを許可してください";
+				INFOPLIST_KEY_NSSpeechRecognitionUsageDescription = "Lilyと会話するために音声認識を使用します";
 				"INFOPLIST_KEY_UIApplicationSceneManifest_Generation[sdk=iphoneos*]" = YES;
 				"INFOPLIST_KEY_UIApplicationSceneManifest_Generation[sdk=iphonesimulator*]" = YES;
 				"INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents[sdk=iphoneos*]" = YES;
@@ -812,7 +810,7 @@
 					"$(PROJECT_DIR)/AGETEKO/dist-back-up-gemma-1b/lib",
 				);
 				MACOSX_DEPLOYMENT_TARGET = 15.2;
-				MARKETING_VERSION = 1.01;
+				MARKETING_VERSION = 1.03;
 				OTHER_LDFLAGS = (
 					"$(inherited)",
 					"-ObjC",
@@ -882,11 +880,11 @@
 				PRODUCT_BUNDLE_IDENTIFIER = CHIA.AGETEKO;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SDKROOT = auto;
-				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator macosx xros xrsimulator";
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
 				SUPPORTS_MACCATALYST = NO;
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,7";
+				TARGETED_DEVICE_FAMILY = 1;
 				XROS_DEPLOYMENT_TARGET = 2.2;
 			};
 			name = Release;
@@ -1038,14 +1036,6 @@
 /* End XCLocalSwiftPackageReference section */
 
 /* Begin XCRemoteSwiftPackageReference section */
-		57A2E8462D8B2ED00086A056 /* XCRemoteSwiftPackageReference "OpenAI" */ = {
-			isa = XCRemoteSwiftPackageReference;
-			repositoryURL = "https://github.com/MacPaw/OpenAI.git";
-			requirement = {
-				kind = upToNextMajorVersion;
-				minimumVersion = 0.3.6;
-			};
-		};
 		57A2EE952D8CF8830086A056 /* XCRemoteSwiftPackageReference "swift-package-manager-google-mobile-ads" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/googleads/swift-package-manager-google-mobile-ads.git";
@@ -1060,11 +1050,6 @@
 		575576232D91127D005E4254 /* MLCSwift */ = {
 			isa = XCSwiftPackageProductDependency;
 			productName = MLCSwift;
-		};
-		57A2E8472D8B2ED00086A056 /* OpenAI */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = 57A2E8462D8B2ED00086A056 /* XCRemoteSwiftPackageReference "OpenAI" */;
-			productName = OpenAI;
 		};
 		57A2EE962D8CF8830086A056 /* GoogleMobileAds */ = {
 			isa = XCSwiftPackageProductDependency;

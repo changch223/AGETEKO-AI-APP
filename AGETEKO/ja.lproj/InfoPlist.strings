@@ -1,0 +1,9 @@
+//
+//  Untitled.swift
+//  AGETEKO
+//
+//  Created by chang chiawei on 2025-04-01.
+//
+
+"NSMicrophoneUsageDescription" = "音声入力のためにマイクへのアクセスを許可してください";
+"NSSpeechRecognitionUsageDescription" = "Lilyと会話するために音声認識を使用します";
