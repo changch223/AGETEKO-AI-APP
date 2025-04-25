@@ -1,3 +1,72 @@
+# 🌸 AGETEKO LILY – The Forgetful & Adorably Clumsy AI Chat App
+
+**AGETEKO LILY** is a heartwarming AI companion app where Lily, a forgetful and slightly clumsy AI, cheers you on through charming chat conversations. Built with simplicity and warmth in mind, it's perfect for emotional support and daily smiles 🌷
+
+[📲 Download on the App Store](https://apps.apple.com/gb/app/ai%E4%BC%9A%E8%A9%B1%E3%82%A2%E3%83%97%E3%83%AA-ageteko-lily-%E3%81%8B%E3%82%93%E3%81%9F%E3%82%93ai%E5%8F%AF%E8%83%BD/id6743860871?uo=2)
+
+---
+
+## 💬 Key Features
+
+- 🗨️ **Chat with Lily** — Type or use voice to talk  
+- 🔊 **Text-to-Speech** — Lily reads aloud in Japanese using iOS built-in TTS  
+- 🎤 **Voice Input** — Press and hold to speak; voice is auto-converted to text  
+- 📢 **Ad Support** — Integrated with Google AdMob banner ads  
+- 🧸 **Soothing Interface** — Clean, calm UI using Chalkboard font  
+- 🧠 **Zero Memory AI** — Lily doesn't store your chats (on purpose!)  
+- 🔒 **Privacy First** — All processing stays on your device; no external servers
+
+---
+
+## 🔐 Privacy & Support
+
+- 🛡️ Your conversations are never stored or sent externally  
+- 💬 Powered by iOS-native Speech & AVFoundation (no 3rd-party APIs)  
+- ✉️ Contact: [irairappo@gmail.com](mailto:irairappo@gmail.com)  
+- 📄 [Privacy Policy](https://www.notion.so/AGETEKO-LILY-1c35a1f77b5e80d38465e81f5e6d2cd7)  
+- 🧭 [Support Page](https://changch223.github.io/)
+
+---
+
+## 🛠 Tech Stack
+
+| Area                | Tools / Frameworks                          |
+|---------------------|---------------------------------------------|
+| UI                  | SwiftUI                                     |
+| Text-to-Speech      | AVFoundation                                |
+| Speech Recognition  | iOS Speech Framework                        |
+| Ads                 | Google AdMob (banner ads)                   |
+| Asynchronous Logic  | Swift `Task` / `async-await`                |
+| UI Components       | NavigationStack, ScrollViewReader, etc.     |
+
+---
+
+## 📱 Device Compatibility
+
+- Optimized for **iPhone 12 Pro and later**  
+- Not officially supported on iPhone 11 or iPads
+
+---
+
+## 👤 About the Developer
+
+**CHIA-WEI**  
+🇯🇵 Based in Japan → 🇨🇦 Now living in Canada  
+📧 [irairappo@gmail.com](mailto:irairappo@gmail.com)
+
+---
+
+## 📜 License
+
+© 2025 CHIA-WEI. All rights reserved.  
+This is a personal, independently developed free app.
+
+---
+
+Thanks for stopping by! May Lily brighten your day with her adorable clumsiness 🌼
+
+
+
 # 🧠 AGETEKO LILY - 忘れっぽくてポンコツな癒し系AIチャットアプリ
 
 AGETEKO LILY は、忘れっぽくてポンコツなAI「Lily」が、  
@@ -29,7 +98,7 @@ AGETEKO LILY は、忘れっぽくてポンコツなAI「Lily」が、
 
 ## 📲 App Store
 
-▶ [AGETEKO LILY をダウンロード（App Store）]()
+▶ [AGETEKO LILY をダウンロード（App Store）](https://apps.apple.com/gb/app/ai%E4%BC%9A%E8%A9%B1%E3%82%A2%E3%83%97%E3%83%AA-ageteko-lily-%E3%81%8B%E3%82%93%E3%81%9F%E3%82%93ai%E5%8F%AF%E8%83%BD/id6743860871?uo=2)
 
 ---
 
